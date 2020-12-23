@@ -1,0 +1,24 @@
+.formUserInformation{
+    max-width: 60%;
+    margin: 0 auto;
+
+    .formBlock {
+        display: flex;
+        justify-content: space-between;
+        padding-top: 15px;
+
+        textarea{
+            resize: none;
+        }
+    }
+
+    .formBlockBtn{ 
+        padding-top: 25px;
+        display: flex;
+        justify-content: space-around;
+
+        button {
+            flex-basis: 49%;
+        }
+    }
+}

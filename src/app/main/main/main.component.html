@@ -1,0 +1,37 @@
+<div class="buttonGroup">
+  <button mat-raised-button color="primary" [routerLink]="['/add/user']">New</button>
+  <button mat-raised-button color="warn" (click)="logoutUser()">Logout</button>
+</div>
+<table mat-table [dataSource]="usersHttp.usersInfo" class="mat-elevation-z8">
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef> Id </th>
+      <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+    </ng-container>
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef> Name </th>
+      <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+    </ng-container>
+    <ng-container matColumnDef="description">
+      <th mat-header-cell *matHeaderCellDef> Description </th>
+      <td mat-cell *matCellDef="let element"> {{element.description}} </td>
+    </ng-container>
+    <ng-container matColumnDef="createdAt">
+      <th mat-header-cell *matHeaderCellDef> CreatedAt </th>
+      <td mat-cell *matCellDef="let element"> {{element.createdAt | date:'medium'}} </td>
+    </ng-container>
+    <ng-container matColumnDef="editedAt">
+        <th mat-header-cell *matHeaderCellDef> EditedAt </th>
+        <td mat-cell *matCellDef="let element"> {{element.editedAt | date:'medium'}} </td>
+    </ng-container>
+    <ng-container matColumnDef="CRUDBtn">
+        <th mat-header-cell *matHeaderCellDef class="btnColumn"> EditedAt </th>
+        <td mat-cell *matCellDef="let element"> 
+            <div>
+                <button mat-button color="primary" (click)="buttonEditOn(element)">Edit</button>
+                <button mat-button color="warn" (click)="deleteUser(element.id)">Delete</button>
+            </div>
+        </td>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="tableRowClick($event, row)"></tr>
+  </table>

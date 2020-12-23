@@ -1,0 +1,25 @@
+{
+  "users": [
+    {
+      "id": 4,
+      "name": "Andriy12",
+      "description": "Some test",
+      "editedAt": 1608734752308,
+      "createdAt": 1608730286954
+    },
+    {
+      "id": 5,
+      "name": "Andriy2",
+      "description": "",
+      "editedAt": 1608734758090,
+      "createdAt": 1608734697649
+    },
+    {
+      "id": 6,
+      "name": "Andriy144",
+      "description": "TST TEST",
+      "editedAt": 1608734772659,
+      "createdAt": 1608734766698
+    }
+  ]
+}

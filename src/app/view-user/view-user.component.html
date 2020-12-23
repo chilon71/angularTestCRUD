@@ -1,0 +1,27 @@
+<form class="formUserInformation"  [formGroup]="userForm">
+  <div class="formBlock">
+    Name:
+    <input type="text" minlength="3" name="name" formControlName="userName">
+  </div>
+  <div class="formBlock">
+    Description:
+    <textarea rows="10" cols="30" formControlName="userDescription"></textarea>
+  </div>
+  <div class="formBlock" *ngIf="!isAddedPage">
+    <span>Created At:</span>
+    <span>{{userInfo.createdAt | date:'medium'}}</span>
+  </div>
+  <div class="formBlock" *ngIf="!isAddedPage">
+    <span>Modified At: </span>
+    <span>{{userInfo.editedAt | date:'medium'}}</span>
+  </div>
+  <div class="formBlockBtn" *ngIf="!isAddedPage; else btnElse">
+    <button mat-raised-button color="primary" [disabled]="!userForm.valid"  (click)="submitForm()">Edit</button>
+    <button mat-raised-button color="warn" (click)="deleteUser()">Delete</button>
+  </div>
+  <ng-template #btnElse>
+    <div class="formBlockBtn">
+      <button mat-raised-button color="primary" [disabled]="!userForm.valid"  (click)="addUser()">Save</button>
+    </div>
+  </ng-template>
+</form>
